@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generating Meta For Web</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script>
+    const docsReadFile = FileReader
+  </script>
+  <link href="./assets/styles.css" rel="styleSheet">
+  <script type="importmap">
+    {
+      "imports": {
+        "@material/web/": "https://esm.run/@material/web/"
+      }
+    }
+  </script>
+  <script type="module">
+    import '@material/web/all.js';
+    import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
+    document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/image-to-ico@1.0.4/dist/image-to-ico.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+</head>
+<body>
+  <header>
+    <div class="response">
+      <div class="nav-title">
+        <h3>Generating Meta For Web</h3>
+      </div>
+      <div class="nav-tab">
+        <md-tabs>
+          <md-primary-tab>Metadata</md-primary-tab>
+          <md-primary-tab>Manifest.json</md-primary-tab>
+          <md-primary-tab>Generate Icon</md-primary-tab>
+        </md-tabs>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="response">
+      <div class="group-metadata form-group" style="display: flex;">
+        <div class="main-form" data-form="metadata-output">
+          <h1>Metadata</h1>
+          <label>
+            <md-outlined-text-field name="title" label="Title" value="My Blog Post">
+            </md-outlined-text-field>
+          </label>
+          <label>
+            <md-outlined-text-field name="description" label="Description" value="This is my blog post, you read the blog">
+            </md-outlined-text-field>
+          </label>
+          <label>
+            <md-outlined-text-field name="applicationName" label="Application name" value="blogpost">
+            </md-outlined-text-field>
+          </label>
+          <label>
+            <md-outlined-select name="referrer" label="Referrer Policy">
+              <md-select-option selected>
+                <div slot="headline">no-referrer</div>
+              </md-select-option>
+              <md-select-option>
+                <div slot="headline">no-referrer-when-downgrade</div>
+              </md-select-option>
+              <md-select-option>
+                <div slot="headline">origin</div>
+              </md-select-option>
+              <md-select-option>
+                <div slot="headline">origin-when-cross-origin</div>
+              </md-select-option>
+              <md-select-option>
+                <div slot="headline">same-origin</div>
+              </md-select-option>
+              <md-select-option>
+                <div slot="headline">strict-origin</div>
+              </md-select-option>
+              <md-select-option>
+                <div slot="headline">strict-origin-when-cross-origin</div>
+              </md-select-option>
+              <md-select-option>
+                <div slot="headline">unsafe-url</div>
+              </md-select-option>
+            </md-outlined-select>
+          </label>
+          <label>
+            <md-outlined-text-field name="category" label="Category" value="web,blog">
+            </md-outlined-text-field>
+          </label>
+          <label>
+            <md-outlined-text-field name="keywords" label="Keywords" value="web,blog">
+            </md-outlined-text-field>
+          </label>
+          <label>
+            <md-outlined-text-field name="authors" label="Authors" value="">
+            </md-outlined-text-field>
+          </label>
+          <label>
+            <md-outlined-text-field name="creator" label="Creator" value="">
+            </md-outlined-text-field>
+          </label>
+          <label class="checkbox-flex">
+            <md-checkbox name="formatDetection.email" id="fd.email" touch-target="wrapper"></md-checkbox>
+            <label for="fd.email">Format detection:email</label>
+          </label>
+          <label class="checkbox-flex">
+            <md-checkbox name="formatDetection.address" id="fd.address" touch-target="wrapper"></md-checkbox>
+            <label for="fd.address">Format detection:address</label>
+          </label>
+          <label class="checkbox-flex">
+            <md-checkbox name="formatDetection.telephone" id="fd.telephone" touch-target="wrapper"></md-checkbox>
+            <label for="fd.telephone">Format detection:telephone</label>
+          </label>
+        </div>
+        <div class="content-result">
+          <div class="code-view">
+            <div class="name-text">index.html</div>
+            <pre id="metadata-html">Code...</pre>
+          </div>
+          <div class="code-view">
+            <div class="name-text">layout.js (next.js)</div>
+            <pre id="metadata-nextjs">Code...</pre>
+          </div>
+        </div>
+      </div>
+      <div class="group-manifest form-group"></div>
+      <div class="group-genicon form-group">
+        <div class="main-form">
+          <h1>Generate Icon</h1>
+          <md-filled-button id="file-manage">File Image</md-filled-button>
+          <md-filled-button id="zipdownload" style="display: none;">Zip Download</md-filled-button>
+        </div>
+        <div class="content-result">
+          
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="./assets/main.js"></script>
+  <script src="./assets/metadata.js"></script>
+  <script src="./assets/genicon.js"></script>
+</body>
+</html>
